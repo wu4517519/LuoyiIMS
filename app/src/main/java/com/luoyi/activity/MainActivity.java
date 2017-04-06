@@ -40,7 +40,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
         /*bottomNavigationBar.setActiveColor("#FFFFFF");
         bottomNavigationBar.setInActiveColor("#CCCCCC");*/
-        bottomNavigationBar.setBarBackgroundColor("#8bc34a");
+        bottomNavigationBar.setBarBackgroundColor("#42bd41");
         bottomNavigationBar
                 .addItem(new BottomNavigationItem(R.mipmap.ic_monitor, "监控").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
                 .addItem(new BottomNavigationItem(R.mipmap.ic_playback ,"回放").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
@@ -57,7 +57,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
         monitorFragment = monitorFragment.newInstance("位置");
-        transaction.replace(R.id.tb, monitorFragment);
+        transaction.replace(R.id.fixed_bottom_navigation_layout, monitorFragment);
         transaction.commit();
     }
 
@@ -70,28 +70,28 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
                 if(null == monitorFragment){
                     monitorFragment = MonitorFragment.newInstance("监控");
                 }
-                ft.replace(R.id.tb,monitorFragment);
+                ft.replace(R.id.fixed_bottom_navigation_layout,monitorFragment);
             }
             break;
             case 1:{
                 if(null == paybackFragment){
                     paybackFragment = paybackFragment.newInstance("回放");
                 }
-                ft.replace(R.id.tb,paybackFragment);
+                ft.replace(R.id.fixed_bottom_navigation_layout,paybackFragment);
             }
             break;
             case 2:{
                 if(null == logFragment){
                     logFragment = logFragment.newInstance("日志");
                 }
-                ft.replace(R.id.tb,logFragment);
+                ft.replace(R.id.fixed_bottom_navigation_layout,logFragment);
             }
             break;
             case 3:{
                 if(null == mineFragment){
                     mineFragment = mineFragment.newInstance("我的");
                 }
-                ft.replace(R.id.tb,mineFragment);
+                ft.replace(R.id.fixed_bottom_navigation_layout,mineFragment);
             }
             break;
             default:break;
