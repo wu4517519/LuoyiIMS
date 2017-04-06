@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f1f1f3"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@mipmap/userbg">
+
+
+        <ImageView
+            android:id="@+id/edit_iv"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="19dp"
+            android:layout_marginTop="12dp"
+            app:srcCompat="@mipmap/edit" />
+
+
+        <com.luoyi.utils.circleimageview.CircleImageView
+
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/touxiang"
+
+            app:civ_border_color="#FFFFFF"
+            app:civ_border_width="1dp" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/content_bg"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/shortcut_iv"
+            android:layout_width="35dp"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="19dp"
+            app:srcCompat="@mipmap/shortcut" />
+
+        <TextView
+            android:id="@+id/shortcut_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/shortcut_iv"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/shortcut_iv"
+            android:text="视频截图"
+            android:textColor="#000000"
+            android:textSize="17dp" />
+
+        <ImageView
+
+            android:layout_width="20dp"
+            android:layout_height="17dp"
+            android:layout_alignBottom="@+id/shortcut_tv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            app:srcCompat="@mipmap/chevron_right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/content_bg"
+
+
+        >
+
+        <ImageView
+            android:id="@+id/video_iv"
+            android:layout_width="35dp"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="22dp"
+            app:srcCompat="@mipmap/video" />
+
+        <TextView
+            android:id="@+id/video_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/video_iv"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/video_iv"
+            android:text="视频录像"
+            android:textColor="#000000"
+            android:textSize="17dp" />
+
+        <ImageView
+
+            android:layout_width="20dp"
+            android:layout_height="17dp"
+            android:layout_alignBottom="@+id/video_tv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            app:srcCompat="@mipmap/chevron_right" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/content_bg"
+
+        >
+
+        <ImageView
+            android:id="@+id/rubbish_iv"
+            android:layout_width="35dp"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="22dp"
+            app:srcCompat="@mipmap/rubbish" />
+
+        <TextView
+            android:id="@+id/rubbish_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/rubbish_iv"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/rubbish_iv"
+            android:text="缓存清理"
+            android:textColor="#000000"
+            android:textSize="17dp" />
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/rubbish_iv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            android:text="7.72M"
+            android:textColor="#000000"
+            android:textSize="18dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@drawable/content_bg"
+
+        >
+
+        <ImageView
+            android:id="@+id/setting_iv"
+            android:layout_width="35dp"
+            android:layout_height="22dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="22dp"
+            app:srcCompat="@mipmap/setting" />
+
+        <TextView
+            android:id="@+id/setting_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/setting_iv"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/setting_iv"
+            android:text="设置"
+            android:textColor="#000000"
+            android:textSize="17dp" />
+
+        <ImageView
+
+            android:layout_width="20dp"
+            android:layout_height="17dp"
+            android:layout_alignBottom="@+id/setting_tv"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="15dp"
+            app:srcCompat="@mipmap/chevron_right" />
+
+    </RelativeLayout>
+</LinearLayout>

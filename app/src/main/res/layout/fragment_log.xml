@@ -5,9 +5,9 @@
     tools:context="com.luoyi.fragment.LogFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
+        android:id="@+id/log_lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Log" />
+        android:layout_height="wrap_content"></ListView>
 
 </FrameLayout>
