@@ -39,14 +39,11 @@ public class LogFragment extends BaseFragment {
 
     private MyAdapter myadapter;
     private void refreshView() {
-        if(myadapter==null){
+
 
             myadapter = new MyAdapter();
             log_lv.setAdapter(myadapter);
-        }else{
 
-            myadapter.notifyDataSetChanged();
-        }
     }
 
     private class MyAdapter extends BaseAdapter {
@@ -61,11 +58,9 @@ public class LogFragment extends BaseFragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View v ;
-            if(convertView==null){
+
                 v=View.inflate(getActivity(), R.layout.item_log, null);
-            }else{
-                v = convertView;
-            }
+
 
 
             return v;
