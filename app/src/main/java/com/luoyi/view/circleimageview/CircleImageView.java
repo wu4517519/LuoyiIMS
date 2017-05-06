@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.luoyi.utils.circleimageview;
+package com.luoyi.view.circleimageview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
