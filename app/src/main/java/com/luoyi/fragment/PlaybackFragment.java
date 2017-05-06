@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 
 import com.luoyi.fragment.base.BaseFragment;
 import com.luoyi.luoyiims.R;
@@ -16,6 +18,8 @@ public class PlaybackFragment extends BaseFragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private ListView playback_lv;
 
     public PlaybackFragment() {
         // Required empty public constructor
@@ -37,19 +41,63 @@ public class PlaybackFragment extends BaseFragment {
         return fragment;
     }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-        }
-    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_playback, container, false);
+
+        View view =inflater.inflate(R.layout.fragment_playback, container, false);
+        playback_lv = (ListView)view.findViewById(R.id.playback_lv);
+        refreshView();
+        return view;
+    }
+
+    private MyAdapter myadapter;
+    private void refreshView() {
+
+
+        myadapter = new MyAdapter();
+        playback_lv.setAdapter(myadapter);
+
+    }
+
+    private class MyAdapter extends BaseAdapter {
+
+
+        @Override
+        public int getCount() {
+            return 10;
+        }
+
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View v ;
+
+            v=View.inflate(parent.getContext(), R.layout.item_playback, null);
+
+
+
+            return v;
+        }
+
+
+        @Override
+        public Object getItem(int position) {
+            // TODO Auto-generated method stub
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+
+
+
     }
 
 

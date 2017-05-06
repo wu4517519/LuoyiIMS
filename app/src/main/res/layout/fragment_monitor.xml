@@ -4,11 +4,56 @@
     android:layout_height="match_parent"
     tools:context="com.luoyi.fragment.MonitorFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Monitor"/>
-    <!--android:text="@string/hello_blank_fragment"-->
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e1e1e1"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingBottom="7dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+
+            <com.luoyi.view.searchview.SearchEditText
+                android:id="@+id/query"
+                android:layout_width="0dp"
+                android:layout_height="34dp"
+                android:layout_centerVertical="true"
+                android:layout_weight="8"
+                android:background="@drawable/seabar_input"
+                android:drawableLeft="@drawable/search_bar_icon_normal"
+                android:drawableRight="@drawable/ic_edit_input_clear"
+                android:hint="搜索"
+                android:imeOptions="actionSearch"
+                android:paddingBottom="5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:singleLine="true"
+                android:textColor="#333"
+                android:textColorHint="#aaa"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:id="@+id/iv_menu"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:paddingLeft="5dp"
+                android:src="@mipmap/ic_menu" />
+
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/monitor_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e1e1e1"></ListView>
+    </LinearLayout>
 </FrameLayout>

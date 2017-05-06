@@ -2,13 +2,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.luoyi.fragment.PlaybackFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Playback"
-         />
-  <!--  android:text="@string/hello_blank_fragment"-->
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e1e1e1"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            >
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="8"
+                android:layout_height="25dp"/>
+            <ImageView
+
+
+                android:id="@+id/iv_menu"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_menu"/>
+
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/playback_lv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+
+
+    </LinearLayout>
+
 </FrameLayout>

@@ -26,6 +26,7 @@ public class LogFragment extends BaseFragment {
         return fragment;
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -51,7 +52,7 @@ public class LogFragment extends BaseFragment {
 
         @Override
         public int getCount() {
-            return 10;
+            return 3;
         }
 
 
@@ -59,7 +60,7 @@ public class LogFragment extends BaseFragment {
         public View getView(int position, View convertView, ViewGroup parent) {
             View v ;
 
-                v=View.inflate(getActivity(), R.layout.item_log, null);
+                v=View.inflate(parent.getContext(), R.layout.item_log, null);
 
 
 
