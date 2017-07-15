@@ -5,7 +5,7 @@ android {
     buildToolsVersion "25.0.0"
     defaultConfig {
         applicationId "com.luoyi.luoyiims"
-        minSdkVersion 21
+        minSdkVersion 20
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"
@@ -28,6 +28,11 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'org.xutils:xutils:3.3.42'
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.4.1'
-    compile 'com.android.support:support-v4:24.2.1'
+
+    //compile 'com.android.support:support-v4:24.2.1'
+    //compile 'com.qiniu.pili:pili-android-qos:0.8.+'
+
+    compile 'fm.jiecao:jiecaovideoplayer:5.5.4'
     testCompile 'junit:junit:4.12'
+
 }

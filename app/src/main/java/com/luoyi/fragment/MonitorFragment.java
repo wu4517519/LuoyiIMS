@@ -1,12 +1,15 @@
 package com.luoyi.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 
+import com.luoyi.activity.MonitorPlayActivity;
 import com.luoyi.fragment.base.BaseFragment;
 import com.luoyi.luoyiims.R;
 
@@ -52,9 +55,22 @@ public class MonitorFragment extends BaseFragment{
                              Bundle savedInstanceState) {
         View view =inflater.inflate(R.layout.fragment_monitor, container, false);
         monitor_lv = (ListView)view.findViewById(R.id.monitor_lv);
+
         refreshView();
+//        monitor_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//
+//               //parent.getItemAtPosition(position);
+//                Intent intent=new Intent();
+//                intent.setClass(getActivity(), MonitorPlayActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         return view;
     }
+
+
     private MyAdapter myadapter;
     private void refreshView() {
 
@@ -75,13 +91,26 @@ public class MonitorFragment extends BaseFragment{
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View v ;
+            View view ;
 
-            v=View.inflate(parent.getContext(), R.layout.item_monitor, null);
+            if(convertView==null){
+                view=View.inflate(parent.getContext(), R.layout.item_monitor, null);
+            }
+            else {
+                view=convertView;
+            }
 
+            ImageView video_iv = (ImageView) view.findViewById(R.id.video_iv);
+            video_iv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
 
-
-            return v;
+                    Intent intent=new Intent();
+                    intent.setClass(getActivity(), MonitorPlayActivity.class);
+                    startActivity(intent);
+                }
+            });
+            return view;
         }
 
 

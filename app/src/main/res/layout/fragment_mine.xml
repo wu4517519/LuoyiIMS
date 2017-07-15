@@ -64,6 +64,7 @@
                 app:srcCompat="@mipmap/shortcut" />
 
             <TextView
+
                 android:id="@+id/shortcut_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

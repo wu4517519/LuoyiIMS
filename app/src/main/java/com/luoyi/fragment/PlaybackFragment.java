@@ -74,13 +74,16 @@ public class PlaybackFragment extends BaseFragment {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View v ;
+            View view ;
 
-            v=View.inflate(parent.getContext(), R.layout.item_playback, null);
+            if(convertView==null){
+                view=View.inflate(parent.getContext(), R.layout.item_playback, null);
+            }
+            else {
+                view=convertView;
+            }
 
-
-
-            return v;
+            return view;
         }
 
 
