@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="4"
-            android:background="@mipmap/userbg">
+            android:background="@drawable/userbg">
 
 
             <ImageView
@@ -28,7 +28,7 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginEnd="19dp"
                 android:layout_marginTop="12dp"
-                app:srcCompat="@mipmap/edit" />
+                app:srcCompat="@drawable/edit" />
 
 
             <com.luoyi.view.circleimageview.CircleImageView
@@ -37,7 +37,7 @@
                 android:layout_height="100dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
-                android:src="@mipmap/touxiang"
+                android:src="@drawable/touxiang"
 
                 app:civ_border_color="#FFFFFF"
                 app:civ_border_width="1dp" />
@@ -61,7 +61,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="19dp"
-                app:srcCompat="@mipmap/shortcut" />
+                app:srcCompat="@drawable/shortcut" />
 
             <TextView
 
@@ -82,7 +82,7 @@
                 android:layout_alignBottom="@+id/shortcut_tv"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                app:srcCompat="@mipmap/chevron_right" />
+                app:srcCompat="@drawable/chevron_right" />
 
         </RelativeLayout>
 
@@ -102,7 +102,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="22dp"
-                app:srcCompat="@mipmap/video" />
+                app:srcCompat="@drawable/video" />
 
             <TextView
                 android:id="@+id/video_tv"
@@ -122,7 +122,7 @@
                 android:layout_alignBottom="@+id/video_tv"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                app:srcCompat="@mipmap/chevron_right" />
+                app:srcCompat="@drawable/chevron_right" />
 
         </RelativeLayout>
 
@@ -141,7 +141,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="22dp"
-                app:srcCompat="@mipmap/rubbish" />
+                app:srcCompat="@drawable/rubbish" />
 
             <TextView
                 android:id="@+id/rubbish_tv"
@@ -182,7 +182,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="22dp"
-                app:srcCompat="@mipmap/setting" />
+                app:srcCompat="@drawable/setting" />
 
             <TextView
                 android:id="@+id/setting_tv"
@@ -202,7 +202,7 @@
                 android:layout_alignBottom="@+id/setting_tv"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="15dp"
-                app:srcCompat="@mipmap/chevron_right" />
+                app:srcCompat="@drawable/chevron_right" />
 
         </RelativeLayout>
     </LinearLayout>
