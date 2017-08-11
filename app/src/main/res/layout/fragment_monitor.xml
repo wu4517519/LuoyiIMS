@@ -46,7 +46,7 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
-                android:src="@mipmap/ic_menu" />
+                android:src="@drawable/ic_menu" />
 
         </LinearLayout>
 

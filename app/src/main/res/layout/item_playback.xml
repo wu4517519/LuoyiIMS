@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:src="@mipmap/test"
+        android:src="@drawable/test"
         android:scaleType="fitXY"
 
         />
@@ -35,7 +35,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="30dp"
-            android:src="@mipmap/setting" />
+            android:src="@drawable/setting" />
 
         <ImageView
             android:layout_width="20dp"
@@ -43,7 +43,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="70dp"
-            android:src="@mipmap/ic_clock" />
+            android:src="@drawable/ic_clock" />
 
         <ImageView
             android:layout_width="20dp"
@@ -51,6 +51,6 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="110dp"
-            android:src="@mipmap/ic_look" />
+            android:src="@drawable/ic_look" />
     </RelativeLayout>
 </LinearLayout>

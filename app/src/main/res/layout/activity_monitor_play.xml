@@ -42,7 +42,7 @@
             android:layout_centerVertical="true"
             android:layout_marginEnd="50dp"
             android:layout_toStartOf="@+id/monitor_log"
-            android:src="@mipmap/ic_clockgreen"
+            android:src="@drawable/ic_clockgreen"
             android:scaleType="fitXY"/>
 
         <ImageButton
@@ -53,7 +53,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_menu2"
+            android:src="@drawable/ic_menu2"
             android:scaleType="fitXY"/>
 
         <TextView
