@@ -2,6 +2,7 @@ package com.luoyi.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -98,6 +99,11 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
 
         switch (v.getId()) {
             case R.id.monitor_control:
+                Drawable ic_menu2 = getResources().getDrawable(R.drawable.ic_menu2);
+                monitor_log.setBackground(ic_menu2);
+
+                Drawable ic_clockgreen = getResources().getDrawable(R.drawable.ic_clockgreen);
+                monitor_control.setBackground(ic_clockgreen);
                 if (null == mcf) {
 
                     mcf = new MonitorControlFragment();
@@ -108,6 +114,11 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
                 transaction.commit();
                 break;
             case R.id.monitor_log:
+                Drawable ic_menugreen = getResources().getDrawable(R.drawable.ic_menugreen);
+                monitor_log.setBackground(ic_menugreen);
+
+                Drawable ic_clockgrey = getResources().getDrawable(R.drawable.ic_clockgrey);
+                monitor_control.setBackground(ic_clockgrey);
                 if (null == mlf) {
 
                     mlf = new MonitorLogFragment();
@@ -167,11 +178,13 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
 
     private void setActionBar() {
 
+
         ActionBar bar = getSupportActionBar();
         // 显示返回按钮
         bar.setDisplayHomeAsUpEnabled(true);
         // 去掉logo图标
         bar.setDisplayShowHomeEnabled(false);
+
         bar.setTitle("监控");
 
     }

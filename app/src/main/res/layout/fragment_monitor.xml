@@ -2,6 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context="com.luoyi.fragment.MonitorFragment">
 
     <LinearLayout
@@ -46,14 +47,22 @@
                 android:layout_height="30dp"
                 android:layout_weight="1"
                 android:paddingLeft="5dp"
-                android:src="@drawable/ic_menu" />
+                android:src="@mipmap/ic_menu" />
 
         </LinearLayout>
 
-        <ListView
-            android:id="@+id/monitor_lv"
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/monitor_rv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#e1e1e1"></ListView>
+            android:background="#e1e1e1"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/monitor_rv2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e1e1e1"
+            android:visibility="gone"/>
     </LinearLayout>
 </FrameLayout>
