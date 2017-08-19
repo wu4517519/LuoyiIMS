@@ -35,25 +35,27 @@
         android:layout_height="50dp">
 
         <ImageButton
-            android:background="@null"
+            android:background="@drawable/ic_clockgreen"
             android:id="@+id/monitor_control"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="50dp"
             android:layout_toStartOf="@+id/monitor_log"
-            android:src="@mipmap/ic_clockgreen"
-            android:scaleType="fitXY"/>
+
+            android:scaleType="fitXY"
+
+            />
 
         <ImageButton
-            android:background="@null"
+            android:background="@drawable/ic_menu2"
             android:id="@+id/monitor_log"
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
-            android:src="@mipmap/ic_menu2"
+
             android:scaleType="fitXY"/>
 
         <TextView
