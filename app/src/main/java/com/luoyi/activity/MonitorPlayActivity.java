@@ -48,8 +48,7 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
 
         super.onCreate(savedInstanceState);
 
-//        CustomTitleBar ct = new CustomTitleBar();
-//        ct.getTitleBar(this, "监控");
+
         setActionBar();
 
         setContentView(R.layout.activity_monitor_play);
