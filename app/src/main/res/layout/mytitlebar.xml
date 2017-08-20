@@ -15,7 +15,7 @@
         android:layout_marginLeft="10dp"
 
         android:scaleType="fitXY"
-        android:src="@mipmap/back" />
+        android:src="@drawable/back" />
 
     <TextView
         android:id="@+id/mytitle"

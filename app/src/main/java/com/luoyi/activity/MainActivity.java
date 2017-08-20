@@ -42,10 +42,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         bottomNavigationBar.setInActiveColor("#CCCCCC");*/
         bottomNavigationBar.setBarBackgroundColor("#42bd41");
         bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.mipmap.ic_monitor, "监控").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_playback ,"回放").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_monitor, "日志").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .addItem(new BottomNavigationItem(R.mipmap.ic_monitor,  "我的").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_monitor, "监控").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_playback ,"回放").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_monitor, "日志").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_monitor,  "我的").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
                 .setFirstSelectedPosition(lastSelectedPosition )
                 .initialise();
 
