@@ -11,6 +11,7 @@ import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -19,9 +20,6 @@ import com.luoyi.fragment.MonitorControlFragment;
 import com.luoyi.fragment.MonitorLogFragment;
 import com.luoyi.luoyiims.R;
 import com.pili.pldroid.player.widget.PLVideoTextureView;
-
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
-import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
 
 public class MonitorPlayActivity extends AppCompatActivity implements View.OnClickListener, MonitorControlFragment.OnFragmentInteractionListener, MonitorLogFragment.OnFragmentInteractionListener {
 
@@ -54,34 +52,34 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
         setContentView(R.layout.activity_monitor_play);
 
 
-        JCVideoPlayerStandard jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.videoplayer);
-        jcVideoPlayerStandard.setUp("http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4"
-                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "嫂子闭眼睛");
-        jcVideoPlayerStandard.startVideo();
+//        JCVideoPlayerStandard jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.videoplayer);
+//        jcVideoPlayerStandard.setUp("http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4"
+//                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "嫂子闭眼睛");
+//        jcVideoPlayerStandard.startVideo();
         monitor_control = (ImageView) findViewById(R.id.monitor_control);
         monitor_log = (ImageView) findViewById(R.id.monitor_log);
-       // mVideoView = (PLVideoTextureView) findViewById(R.id.videoView);
+        mVideoView = (PLVideoTextureView) findViewById(R.id.videoView);
 
-        //iv_fullscreen = (ImageView) findViewById(R.id.iv_fullscreen);
-       // rll_video_blank = (RelativeLayout) findViewById(R.id.rll_video_blank);
+        iv_fullscreen = (ImageView) findViewById(R.id.iv_fullscreen);
+        rll_video_blank = (RelativeLayout) findViewById(R.id.rll_video_blank);
 
-        //mVideoView.setVideoPath(path);
-        //mVideoView.start();
+        mVideoView.setVideoPath(path);
+        mVideoView.start();
         monitor_control.setOnClickListener(this);
         monitor_log.setOnClickListener(this);
 
-        //iv_fullscreen.setOnClickListener(this);
-//        rll_video_blank.setOnTouchListener(new View.OnTouchListener() {
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//
-//                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-//                    startAndPause();
-//                }
-//
-//                return false;
-//            }
-//        });
+        iv_fullscreen.setOnClickListener(this);
+        rll_video_blank.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (MotionEvent.ACTION_DOWN == event.getAction()) {
+                    startAndPause();
+                }
+
+                return false;
+            }
+        });
 
 
         mcf = new MonitorControlFragment();
@@ -129,21 +127,21 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
 
                 break;
             //播放全屏
-//            case R.id.iv_fullscreen:
-//
-//                startWindowFullscreen();
-//
-//
-//                break;
-//
-//
-//            //点击空白处暂停播放
-//            case R.id.rll_video_blank:
-//
-//                startAndPause();
-//
-//
-//                break;
+            case R.id.iv_fullscreen:
+
+                startWindowFullscreen();
+
+
+                break;
+
+
+            //点击空白处暂停播放
+            case R.id.rll_video_blank:
+
+                startAndPause();
+
+
+                break;
 
         }
 
@@ -202,16 +200,16 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-    @Override
-    public void onBackPressed() {
-        if (JCVideoPlayer.backPress()) {
-            return;
-        }
-        super.onBackPressed();
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        JCVideoPlayer.releaseAllVideos();
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if (JCVideoPlayer.backPress()) {
+//            return;
+//        }
+//        super.onBackPressed();
+//    }
+//    @Override
+//    protected void onPause() {
+//        super.onPause();
+//        JCVideoPlayer.releaseAllVideos();
+//    }
 }
