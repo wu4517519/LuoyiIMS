@@ -3,10 +3,12 @@ package com.luoyi.activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.provider.Settings;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.luoyi.activity.base.BaseActivity;
+import com.luoyi.common.DeviceManager;
 import com.luoyi.fragment.LogFragment;
 import com.luoyi.fragment.MineFragment;
 import com.luoyi.fragment.MonitorFragment;
@@ -14,6 +16,8 @@ import com.luoyi.fragment.PlaybackFragment;
 import com.luoyi.luoyiims.R;
 
 import org.xutils.view.annotation.ContentView;
+
+import static com.luoyi.MyApplication.mPushAgent;
 
 /**
  * 主页面
@@ -23,10 +27,12 @@ import org.xutils.view.annotation.ContentView;
 @ContentView(R.layout.activity_main)
 public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
 
+
     private MonitorFragment monitorFragment;
     private PlaybackFragment paybackFragment;
     private LogFragment logFragment;
     private MineFragment mineFragment;
+    private String userId;
 
     private BottomNavigationBar bottomNavigationBar;
     private int lastSelectedPosition = 0;
@@ -34,23 +40,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
-        bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
-        bottomNavigationBar .
-                setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
-        /*bottomNavigationBar.setActiveColor("#FFFFFF");
-        bottomNavigationBar.setInActiveColor("#CCCCCC");*/
-        bottomNavigationBar.setBarBackgroundColor("#42bd41");
-        bottomNavigationBar
-                .addItem(new BottomNavigationItem(R.drawable.ic_monitor, "监控").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .addItem(new BottomNavigationItem(R.drawable.ic_playback ,"回放").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .addItem(new BottomNavigationItem(R.drawable.ic_monitor, "日志").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .addItem(new BottomNavigationItem(R.drawable.ic_monitor,  "我的").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
-                .setFirstSelectedPosition(lastSelectedPosition )
-                .initialise();
-
-        bottomNavigationBar.setTabSelectedListener(this);
+        initView();
+        Bundle bundle = this.getIntent().getExtras();
+        userId = bundle.getString("userId");
         setDefaultFragment();
+        checkDevice();
     }
 
     private void setDefaultFragment() {
@@ -109,6 +103,30 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     public void onTabReselected(int position) {
 
     }
+
+    private void initView(){
+        bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
+        bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
+        bottomNavigationBar .
+                setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC);
+        /*bottomNavigationBar.setActiveColor("#FFFFFF");
+        bottomNavigationBar.setInActiveColor("#CCCCCC");*/
+        bottomNavigationBar.setBarBackgroundColor("#42bd41");
+        bottomNavigationBar
+                .addItem(new BottomNavigationItem(R.drawable.ic_monitor, "监控").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_playback ,"回放").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_monitor, "日志").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .addItem(new BottomNavigationItem(R.drawable.ic_monitor,  "我的").setActiveColorResource(R.color.grey).setInActiveColorResource(R.color.lavenderblush))
+                .setFirstSelectedPosition(lastSelectedPosition )
+                .initialise();
+
+        bottomNavigationBar.setTabSelectedListener(this);
+    }
+
+   private void checkDevice(){
+       final String ANDROID_ID = Settings.System.getString(getContentResolver(), Settings.System.ANDROID_ID);
+       DeviceManager.getInstance().isDeviceExist(userId, ANDROID_ID, mPushAgent.getRegistrationId());
+   }
 
 
 }

@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.ActionBar;
@@ -33,7 +32,7 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
     private MonitorControlFragment mcf;
     private MonitorLogFragment mlf;
     private RelativeLayout rll_video_blank;
-    private String path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/areyouok.3gp";
+    private String path = "rtmp://192.168.16.102/LuoyiLive/1";
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {

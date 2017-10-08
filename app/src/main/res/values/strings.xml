@@ -78,4 +78,30 @@
     <string name="pref_ringtone_silent">Silent</string>
 
     <string name="pref_title_vibrate">Vibrate</string>
+
+    <!--用户模块-->
+    <string name="username">用&#160;&#160;户&#160;&#160;名</string>
+    <string name="password">密&#160;&#160;码</string>
+    <string name="login">登&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;录</string>
+    <string name="forget_pwd">忘记密码？</string>
+    <string name="create_account">注册</string>
+    <string name="register">注册</string>
+    <string name="phone">手机号</string>
+    <string name="gallery">从相册选择图片</string>
+    <string name="take_picture">拍照</string>
+    <string name="cancel">取消</string>
+    <string name="logout">退出当前账号</string>
+
+    <!--采集模块-->
+    <string name="push">推流</string>
+    <string name="switchCamera">前置</string>
+    <string name="record">录像</string>
+    <string name="softEndoder">软编码</string>
+
+    <!--我的模块-->
+    <string name="setting">设置</string>
+    <string name="clear">清理缓存</string>
+
+    <string name="illegalEmail">邮箱格式不正确</string>
+    <string name="illegalPhone">请输入11位手机号码</string>
 </resources>

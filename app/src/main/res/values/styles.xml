@@ -26,8 +26,15 @@
 
         <item name="android:windowTitleBackgroundStyle">@style/WindowTitleBackground</item>
         <item name="android:padding">0dp</item>
+    </style>
 
+    <!-- popupwindow 动画 -->
+    <style name="PopupWindowsAnimation">
+        <item name="android:windowEnterAnimation">@anim/popup_window_in</item>
+        <item name="android:windowExitAnimation">@anim/popup_window_out</item>
+    </style>
 
-
+    <style name="selectableItemBackgrond">
+        <item name="android:background">@drawable/button_background</item>
     </style>
 </resources>
