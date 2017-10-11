@@ -7,7 +7,7 @@ import java.io.File;
  */
 
 public class Constant {
-    public static final String LUOYI_SERVER_ADDR = "http://192.168.16.101";
+    public static final String LUOYI_SERVER_ADDR = "http://192.168.16.100";
     //落意服务器ip地址
     //public static final String LUOYI_SERVER_ADDR = "http://116.196.92.220";
     //端口号
