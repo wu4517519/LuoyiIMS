@@ -7,6 +7,8 @@ public class AlarmLog {
 
     private String androidId;
 
+    private String alarmImgPath;
+
     private Date time;
 
     private Integer type;
@@ -25,6 +27,14 @@ public class AlarmLog {
 
     public void setAndroidId(String androidId) {
         this.androidId = androidId == null ? null : androidId.trim();
+    }
+
+    public String getAlarmImgPath() {
+        return alarmImgPath;
+    }
+
+    public void setAlarmImgPath(String alarmImgPath) {
+        this.alarmImgPath = alarmImgPath == null ? null : alarmImgPath.trim();
     }
 
     public Date getTime() {
