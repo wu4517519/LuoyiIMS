@@ -106,4 +106,39 @@ public class DeviceManager {
         });
     }
 
+    public void updateDeviceOnlineStatus(final boolean isOnline){
+        if(device != null){
+            final RequestParams requestParams = new RequestParams(Constant.UPDATE_DEVICE_ONLINE_STATUS);
+            requestParams.addBodyParameter("id",device.getId()+"");
+            requestParams.addBodyParameter("isOnline",isOnline == true ? "1" : "0");
+            x.http().post(requestParams, new Callback.CommonCallback<String>() {
+                @Override
+                public void onSuccess(String result) {
+                    if(result != null || !result.equals("") || !result.equals("null")){
+                        String s = isOnline == true ? "online":"offline";
+                        if(result.equals(Constant.SUCCESS)){
+                            Log.d(Constant.TAG,"设备"+device.getAndroidId()+"已更新状态为"+s);
+                        }
+                    }
+
+                }
+
+                @Override
+                public void onError(Throwable ex, boolean isOnCallback) {
+                    Log.d(Constant.TAG,"设备联网状态更新失败");
+                }
+
+                @Override
+                public void onCancelled(CancelledException cex) {
+
+                }
+
+                @Override
+                public void onFinished() {
+
+                }
+            });
+        }
+    }
+
 }

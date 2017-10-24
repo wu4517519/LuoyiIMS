@@ -8,6 +8,7 @@ import android.provider.Settings;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.luoyi.activity.base.BaseActivity;
+import com.luoyi.common.DeviceCallback;
 import com.luoyi.common.DeviceManager;
 import com.luoyi.fragment.LogFragment;
 import com.luoyi.fragment.MineFragment;
@@ -25,7 +26,7 @@ import static com.luoyi.MyApplication.mPushAgent;
  * @date 2017年3月19日
  */
 @ContentView(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener{
+public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, DeviceCallback{
 
 
     private MonitorFragment monitorFragment;
@@ -45,6 +46,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         userId = bundle.getString("userId");
         setDefaultFragment();
         checkDevice();
+        onDeviceOnline();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        onDeviceOffline();
     }
 
     private void setDefaultFragment() {
@@ -102,6 +110,16 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     @Override
     public void onTabReselected(int position) {
 
+    }
+
+    @Override
+    public void onDeviceOnline() {
+        DeviceManager.getInstance().updateDeviceOnlineStatus(true);
+    }
+
+    @Override
+    public void onDeviceOffline() {
+        DeviceManager.getInstance().updateDeviceOnlineStatus(false);
     }
 
     private void initView(){

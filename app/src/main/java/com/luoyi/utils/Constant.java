@@ -1,5 +1,7 @@
 package com.luoyi.utils;
 
+import com.luoyi.utils.StorageUtil;
+
 import java.io.File;
 
 /**
@@ -7,17 +9,20 @@ import java.io.File;
  */
 
 public class Constant {
-    public static final String LUOYI_SERVER_ADDR = "http://192.168.16.100";
+    /*public static final String LUOYI_SERVER_ADDR = "http://192.168.16.101";
+    public static final String PORT = "8080";*/
     //落意服务器ip地址
-    //public static final String LUOYI_SERVER_ADDR = "http://116.196.92.220";
+    public static final String LUOYI_SERVER_ADDR = "http://116.196.92.220";
     //端口号
-    public static final String PORT = "8080";
-    //public static final String PORT = "80";
+    public static final String PORT = "80";
     //项目名
     public static final String PROJECT_NAME = "LuoyiServer";
     //基本访问路径
     public static final String BASE_PATH = LUOYI_SERVER_ADDR+":"+PORT+"/"+PROJECT_NAME;
 
+
+    public static final String  SUCCESS = "success";
+    public static final String  FAILURE = "failure";
 
     /*用户模块 start */
 
@@ -41,23 +46,23 @@ public class Constant {
     public static final String ADD_DEVICE = BASE_PATH+"/device/addDevice";
     //根据AndroidId查找设备
     public static final String FIND_DEVICE_BY_ANDROID_ID = BASE_PATH+"/device/findDeviceByAndroidId";
+    //更新设备在线状态
+    public static final String UPDATE_DEVICE_ONLINE_STATUS  = BASE_PATH+"/device/updateDeviceOnlineStatus";
     /*设备模块 end */
 
     /*监控模块*/
     //流媒体服务器IP地址
-    public static final String STREAM_MEDIA_SERVER_ADDRESS = "192.168.16.102";
+    public static final String STREAM_MEDIA_SERVER_ADDRESS = "120.77.153.127";
     //推流前缀
     public static final String PUSH_URL_PREFIX = "rtmp://"+STREAM_MEDIA_SERVER_ADDRESS+"/LuoyiLive/";
     public static final String INVASION = "目标闯入";
     /*监控模块 end */
 
+
     /*警报日志模块*/
     public static final int ALARM_TYPE_INVASION = 0;
     public static final String ADD_ALARM_LOG =  BASE_PATH+"/alarmLog/addAlarmLog";
     public static final String UPLOAD_ALARM_IMG =  BASE_PATH+"/alarmLog/uploadAlarmImg";
-    public static final String FIND_ALARM_LOG =  BASE_PATH+"/alarmLog/findAlarmLog";
-
-
 
 
 

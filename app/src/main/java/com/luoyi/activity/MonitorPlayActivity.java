@@ -32,7 +32,7 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
     private MonitorControlFragment mcf;
     private MonitorLogFragment mlf;
     private RelativeLayout rll_video_blank;
-    private String path = "rtmp://192.168.16.102/LuoyiLive/1";
+    private String path = "rtmp://120.77.153.127/LuoyiLive/172o03nrr";
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
