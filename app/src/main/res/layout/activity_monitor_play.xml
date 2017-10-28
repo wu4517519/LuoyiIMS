@@ -8,27 +8,12 @@
     android:orientation="vertical"
     tools:context="com.luoyi.activity.MonitorPlayActivity">
 
-    <RelativeLayout
+
+    <com.luoyi.view.SampleVideo
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@color/black">
-
-        <com.pili.pldroid.player.widget.PLVideoTextureView
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:id="@+id/videoView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-
-            />
-
-        <include layout="@layout/media_min_controller" android:id="@+id/media_min_controller"/>
-    </RelativeLayout>
-
-    <!--<fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard-->
-        <!--android:id="@+id/videoplayer"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="200dp"/>-->
+        android:id="@+id/myVideo"
+        ></com.luoyi.view.SampleVideo>
 
     <RelativeLayout
         android:layout_width="match_parent"

@@ -9,7 +9,7 @@ public class AlarmLog {
 
     private String alarmImgPath;
 
-    private Date time;
+    private String time;
 
     private Integer type;
 
@@ -37,11 +37,11 @@ public class AlarmLog {
         this.alarmImgPath = alarmImgPath == null ? null : alarmImgPath.trim();
     }
 
-    public Date getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Date time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

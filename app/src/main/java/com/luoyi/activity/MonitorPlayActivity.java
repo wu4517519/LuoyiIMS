@@ -2,6 +2,7 @@ package com.luoyi.activity;
 
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
+import android.content.res.Configuration;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,20 +11,27 @@ import android.os.Message;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
+import com.luoyi.bean.SwitchVideoModel;
 import com.luoyi.fragment.MonitorControlFragment;
 import com.luoyi.fragment.MonitorLogFragment;
+import com.luoyi.listener.SampleListener;
 import com.luoyi.luoyiims.R;
-import com.pili.pldroid.player.widget.PLVideoTextureView;
+import com.luoyi.view.SampleVideo;
+import com.shuyu.gsyvideoplayer.listener.LockClickListener;
+import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
+import com.shuyu.gsyvideoplayer.video.StandardGSYVideoPlayer;
+import com.shuyu.gsyvideoplayer.video.base.GSYVideoPlayer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MonitorPlayActivity extends AppCompatActivity implements View.OnClickListener, MonitorControlFragment.OnFragmentInteractionListener, MonitorLogFragment.OnFragmentInteractionListener {
 
     private static final int HIDE_MEDIACONTROLLER = 2;
-    private PLVideoTextureView mVideoView;
+
     private ImageView monitor_control;
     private ImageView monitor_log;
     private ImageView iv_fullscreen;
@@ -31,8 +39,16 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
     private FragmentTransaction transaction;
     private MonitorControlFragment mcf;
     private MonitorLogFragment mlf;
-    private RelativeLayout rll_video_blank;
-    private String path = "rtmp://120.77.153.127/LuoyiLive/172o03nrr";
+
+    private OrientationUtils orientationUtils;
+    private boolean isPlay;
+    private boolean isPause;
+    private boolean isRelease;
+
+    private SampleVideo  myVideo;
+//    private String path = "rtmp://192.168.16.102/LuoyiLive/1";
+//    private String path = "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4";
+    private String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -44,41 +60,29 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-
         setActionBar();
-
         setContentView(R.layout.activity_monitor_play);
 
 
-//        JCVideoPlayerStandard jcVideoPlayerStandard = (JCVideoPlayerStandard) findViewById(R.id.videoplayer);
-//        jcVideoPlayerStandard.setUp("http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4"
-//                , JCVideoPlayerStandard.SCREEN_LAYOUT_NORMAL, "嫂子闭眼睛");
-//        jcVideoPlayerStandard.startVideo();
+        SwitchVideoModel switchVideoModel = new SwitchVideoModel("标准", path);
+
+        List<SwitchVideoModel> list = new ArrayList<>();
+        list.add(switchVideoModel);
         monitor_control = (ImageView) findViewById(R.id.monitor_control);
         monitor_log = (ImageView) findViewById(R.id.monitor_log);
-        mVideoView = (PLVideoTextureView) findViewById(R.id.videoView);
+        myVideo= (SampleVideo ) findViewById(R.id.myVideo);
 
-        iv_fullscreen = (ImageView) findViewById(R.id.iv_fullscreen);
-        rll_video_blank = (RelativeLayout) findViewById(R.id.rll_video_blank);
+        myVideo.setUp(list, true, "");
 
-        mVideoView.setVideoPath(path);
-        mVideoView.start();
+        //外部辅助的旋转，帮助全屏
+        orientationUtils = new OrientationUtils(this, myVideo);
+        //初始化不打开外部的旋转
+        orientationUtils.setEnable(false);
+
+
         monitor_control.setOnClickListener(this);
         monitor_log.setOnClickListener(this);
 
-        iv_fullscreen.setOnClickListener(this);
-        rll_video_blank.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-
-                if (MotionEvent.ACTION_DOWN == event.getAction()) {
-                    startAndPause();
-                }
-
-                return false;
-            }
-        });
 
 
         mcf = new MonitorControlFragment();
@@ -86,6 +90,66 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
         transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.container, mcf);
         transaction.commit();
+
+        myVideo.setIsTouchWiget(true);
+        //detailPlayer.setIsTouchWigetFull(false);
+        //关闭自动旋转
+        myVideo.setRotateViewAuto(false);
+        myVideo.setLockLand(false);
+        myVideo.setShowFullAnimation(false);
+        myVideo.setNeedLockFull(true);
+        myVideo.setSeekRatio(1);
+        //detailPlayer.setOpenPreView(false);
+        myVideo.getFullscreenButton().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //直接横屏
+                orientationUtils.resolveByClick();
+
+                //第一个true是否需要隐藏actionbar，第二个true是否需要隐藏statusbar
+                myVideo.startWindowFullscreen(MonitorPlayActivity.this, true, true);
+            }
+        });
+
+        myVideo.setStandardVideoAllCallBack(new SampleListener() {
+            @Override
+            public void onPrepared(String url, Object... objects) {
+                super.onPrepared(url, objects);
+                //开始播放了才能旋转和全屏
+                orientationUtils.setEnable(true);
+                isPlay = true;
+            }
+
+            @Override
+            public void onAutoComplete(String url, Object... objects) {
+                super.onAutoComplete(url, objects);
+            }
+
+            @Override
+            public void onClickStartError(String url, Object... objects) {
+                super.onClickStartError(url, objects);
+            }
+
+            @Override
+            public void onQuitFullscreen(String url, Object... objects) {
+                super.onQuitFullscreen(url, objects);
+                if (orientationUtils != null) {
+                    orientationUtils.backToProtVideo();
+                }
+            }
+        });
+
+        myVideo.setLockClickListener(new LockClickListener() {
+            @Override
+            public void onClick(View view, boolean lock) {
+                if (orientationUtils != null) {
+                    //配合下方的onConfigurationChanged
+                    orientationUtils.setEnable(!lock);
+                }
+            }
+        });
+
+
 
     }
 
@@ -124,23 +188,9 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
                 transaction.replace(R.id.container, mlf);
                 transaction.commit();
 
-                break;
-            //播放全屏
-            case R.id.iv_fullscreen:
-
-                startWindowFullscreen();
 
 
-                break;
 
-
-            //点击空白处暂停播放
-            case R.id.rll_video_blank:
-
-                startAndPause();
-
-
-                break;
 
         }
 
@@ -149,22 +199,8 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
 
     }
 
-    private void startWindowFullscreen() {
 
 
-        mVideoView.setDisplayOrientation(90);
-
-    }
-
-    private void startAndPause() {
-
-        if (mVideoView.isPlaying()) {
-            mVideoView.pause();
-        } else {
-            mVideoView.start();
-        }
-
-    }
 
 
     @Override
@@ -189,8 +225,7 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
         switch (item.getItemId()) {
             case android.R.id.home:   //返回键的id
 
-               // mVideoView.pause();
-               // mVideoView.releaseSurfactexture();
+
 
                 this.finish();
                 return false;
@@ -199,16 +234,69 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
         }
     }
 
-//    @Override
-//    public void onBackPressed() {
-//        if (JCVideoPlayer.backPress()) {
-//            return;
-//        }
-//        super.onBackPressed();
-//    }
-//    @Override
-//    protected void onPause() {
-//        super.onPause();
-//        JCVideoPlayer.releaseAllVideos();
-//    }
+    @Override
+    public void onBackPressed() {
+
+        if (orientationUtils != null) {
+            orientationUtils.backToProtVideo();
+        }
+
+        if (StandardGSYVideoPlayer.backFromWindowFull(this)) {
+            return;
+        }
+        super.onBackPressed();
+    }
+
+
+    @Override
+    protected void onPause() {
+        getCurPlay().onVideoPause();
+        super.onPause();
+        isPause = true;
+    }
+
+    @Override
+    protected void onResume() {
+        getCurPlay().onVideoResume();
+        super.onResume();
+        isPause = false;
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        isRelease = true;
+        if (isPlay) {
+            getCurPlay().release();
+        }
+        //GSYPreViewManager.instance().releaseMediaPlayer();
+        if (orientationUtils != null)
+            orientationUtils.releaseListener();
+
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //如果旋转了就全屏
+        if (isPlay && !isPause) {
+            myVideo.onConfigurationChanged(this, newConfig, orientationUtils);
+        }
+    }
+
+
+
+    private GSYVideoPlayer getCurPlay() {
+        if (myVideo.getFullWindowPlayer() != null) {
+            return  myVideo.getFullWindowPlayer();
+        }
+        return myVideo;
+    }
+
+
+    private void resolveNormalVideoUI() {
+        //增加title
+        myVideo.getTitleTextView().setVisibility(View.GONE);
+        myVideo.getBackButton().setVisibility(View.GONE);
+    }
 }

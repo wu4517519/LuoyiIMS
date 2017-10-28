@@ -7,21 +7,21 @@
     >
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/log_iv"
         android:layout_width="110dp"
         android:layout_height="70dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="16dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/log_pic" />
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:layout_alignTop="@+id/imageView"
+        android:layout_alignTop="@+id/log_iv"
         android:layout_marginStart="21dp"
-        android:layout_toEndOf="@+id/imageView"
+        android:layout_toEndOf="@+id/log_iv"
         android:orientation="vertical">
 
         <LinearLayout
@@ -31,12 +31,13 @@
             android:orientation="horizontal">
 
             <TextView
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="警报类型：" />
 
             <TextView
-
+                android:id="@+id/alarm_type_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
@@ -67,6 +68,7 @@
             android:text="警报时间：" />
 
         <TextView
+            android:id="@+id/date_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

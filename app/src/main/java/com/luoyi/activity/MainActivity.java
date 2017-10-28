@@ -15,8 +15,11 @@ import com.luoyi.fragment.MineFragment;
 import com.luoyi.fragment.MonitorFragment;
 import com.luoyi.fragment.PlaybackFragment;
 import com.luoyi.luoyiims.R;
+import com.luoyi.utils.Constant;
 
+import org.xutils.http.RequestParams;
 import org.xutils.view.annotation.ContentView;
+import org.xutils.x;
 
 import static com.luoyi.MyApplication.mPushAgent;
 
@@ -55,6 +58,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
         onDeviceOffline();
     }
 
+
     private void setDefaultFragment() {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
@@ -84,7 +88,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
             break;
             case 2:{
                 if(null == logFragment){
-                    logFragment = logFragment.newInstance("日志");
+                    logFragment = logFragment.newInstance("日志",userId);
                 }
                 ft.replace(R.id.fixed_bottom_navigation_layout,logFragment);
             }

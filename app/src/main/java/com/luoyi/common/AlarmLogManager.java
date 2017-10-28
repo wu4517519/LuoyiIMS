@@ -37,7 +37,7 @@ public class AlarmLogManager {
         AlarmLog alarmLog = new AlarmLog();
         alarmLog.setAndroidId(device.getAndroidId());
         alarmLog.setType(Constant.ALARM_TYPE_INVASION);
-        alarmLog.setTime(new Date());
+        alarmLog.setTime(new Date()+"");
         RequestParams requestParams = new RequestParams(Constant.ADD_ALARM_LOG);
         requestParams.addBodyParameter("alarmLog",new Gson().toJson(alarmLog));
         x.http().post(requestParams, new Callback.CommonCallback<String>(){
