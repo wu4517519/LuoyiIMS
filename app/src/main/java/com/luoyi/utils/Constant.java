@@ -63,7 +63,7 @@ public class Constant {
     public static final int ALARM_TYPE_INVASION = 0;
     public static final String ADD_ALARM_LOG =  BASE_PATH+"/alarmLog/addAlarmLog";
     public static final String UPLOAD_ALARM_IMG =  BASE_PATH+"/alarmLog/uploadAlarmImg";
-
+    public static final String FIND_ALARM_LOG = BASE_PATH+"/alarmLog/findAlarmImg";
 
 
     //本地路径
