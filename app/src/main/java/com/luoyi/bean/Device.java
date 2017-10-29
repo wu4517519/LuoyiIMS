@@ -17,6 +17,8 @@ public class Device {
 
     private String pushUrl;
 
+    private String coverImgPath;
+
     private String qrCode;
 
     public Integer getId() {
@@ -81,6 +83,14 @@ public class Device {
 
     public void setPushUrl(String pushUrl) {
         this.pushUrl = pushUrl == null ? null : pushUrl.trim();
+    }
+
+    public String getCoverImgPath() {
+        return coverImgPath;
+    }
+
+    public void setCoverImgPath(String coverImgPath) {
+        this.coverImgPath = coverImgPath == null ? null : coverImgPath.trim();
     }
 
     public String getQrCode() {
