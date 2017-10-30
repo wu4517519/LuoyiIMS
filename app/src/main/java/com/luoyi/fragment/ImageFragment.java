@@ -71,7 +71,7 @@ public class ImageFragment extends BaseFragment {
         }
     }
 
-//    @Event(value = R.id.lv_img, type = AdapterView.OnItemClickListener.class)
+//    @Event(value = R.id.lv_img, type = AdapterView.MonitorCallback.class)
     private void onImageItemClick(AdapterView<?> parent, View view, int position, long id) {
         Intent intent = new Intent(this.getActivity(), BigImageActivity.class);
         intent.putExtra("url", imageListAdapter.getItem(position).toString());

@@ -29,7 +29,7 @@ import static com.luoyi.MyApplication.mPushAgent;
  * @date 2017年3月19日
  */
 @ContentView(R.layout.activity_main)
-public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, DeviceCallback{
+public class MainActivity extends BaseActivity implements BottomNavigationBar.OnTabSelectedListener, DeviceCallback.DeviceNetWorkCallback{
 
 
     private MonitorFragment monitorFragment;
@@ -62,7 +62,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
     private void setDefaultFragment() {
         FragmentManager fm = getFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        monitorFragment = monitorFragment.newInstance("位置");
+        monitorFragment = monitorFragment.newInstance("监控");
+        monitorFragment.setUserId(userId);
         transaction.replace(R.id.fixed_bottom_navigation_layout, monitorFragment);
         transaction.commit();
     }
@@ -75,6 +76,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationBar.On
             case 0:{
                 if(null == monitorFragment){
                     monitorFragment = MonitorFragment.newInstance("监控");
+                    monitorFragment.setUserId(userId);
                 }
                 ft.replace(R.id.fixed_bottom_navigation_layout,monitorFragment);
             }

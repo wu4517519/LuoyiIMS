@@ -19,6 +19,7 @@ import com.luoyi.fragment.MonitorControlFragment;
 import com.luoyi.fragment.MonitorLogFragment;
 import com.luoyi.listener.SampleListener;
 import com.luoyi.luoyiims.R;
+import com.luoyi.utils.Constant;
 import com.luoyi.view.SampleVideo;
 import com.shuyu.gsyvideoplayer.listener.LockClickListener;
 import com.shuyu.gsyvideoplayer.utils.OrientationUtils;
@@ -48,7 +49,8 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
     private SampleVideo  myVideo;
 //    private String path = "rtmp://192.168.16.102/LuoyiLive/1";
 //    private String path = "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4";
-    private String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    //private String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
+    private String path;
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -62,8 +64,8 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setActionBar();
         setContentView(R.layout.activity_monitor_play);
-
-
+        Bundle bundle = getIntent().getExtras();
+        path = bundle.getString("playUrl");
         SwitchVideoModel switchVideoModel = new SwitchVideoModel("标准", path);
 
         List<SwitchVideoModel> list = new ArrayList<>();
