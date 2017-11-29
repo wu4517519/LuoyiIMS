@@ -47,9 +47,6 @@ public class MonitorPlayActivity extends AppCompatActivity implements View.OnCli
     private boolean isRelease;
 
     private SampleVideo  myVideo;
-//    private String path = "rtmp://192.168.16.102/LuoyiLive/1";
-//    private String path = "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4";
-    //private String path = "rtmp://live.hkstv.hk.lxdns.com/live/hks";
     private String path;
     private Handler handler = new Handler() {
         @Override

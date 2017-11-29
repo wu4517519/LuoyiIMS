@@ -96,10 +96,10 @@ public class MonitorFragment extends BaseFragment implements DeviceCallback.Devi
 
 
     private void set_adapter() {
-        myadapter = new MyAdapter(deviceList,R.layout.item_monitor);
+        myadapter = new MyAdapter(deviceList,R.layout.listview_monitor_item);
         monitor_rv.setAdapter(myadapter);
         myadapter.setDeviceOperCallback(this);
-        myadapter2 = new MyAdapter(deviceList,R.layout.item_monitor2);
+        myadapter2 = new MyAdapter(deviceList,R.layout.gridview_monitor_item);
         myadapter.setDeviceOperCallback(this);
         monitor_rv2.setAdapter(myadapter2);
 

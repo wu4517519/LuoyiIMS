@@ -9,12 +9,12 @@ import java.io.File;
  */
 
 public class Constant {
-    public static final String LUOYI_SERVER_ADDR = "http://192.168.16.100";
-    public static final String PORT = "8080";
-    /*//落意服务器ip地址
-    public static final String LUOYI_SERVER_ADDR = "http://116.196.92.220";
+    /*public static final String LUOYI_SERVER_ADDR = "http://192.168.16.100";
+    public static final String PORT = "8080";*/
+    //落意服务器ip地址
+    public static final String LUOYI_SERVER_ADDR = "http://120.77.218.173";
     //端口号
-    public static final String PORT = "80";*/
+    public static final String PORT = "80";
     //项目名
     public static final String PROJECT_NAME = "LuoyiServer";
     //基本访问路径
@@ -67,7 +67,7 @@ public class Constant {
     public static final int ALARM_TYPE_INVASION = 0;
     public static final String ADD_ALARM_LOG =  BASE_PATH+"/alarmLog/addAlarmLog";
     public static final String UPLOAD_ALARM_IMG =  BASE_PATH+"/alarmLog/uploadAlarmImg";
-    public static final String FIND_ALARM_LOG = BASE_PATH+"/alarmLog/findAlarmImg";
+    public static final String FIND_ALARM_LOG = BASE_PATH+"/alarmLog/findAlarmLog";
 
 
     //本地路径
@@ -77,7 +77,7 @@ public class Constant {
 
 
 
-    public static final String  TAG = "wwc";
+    public static final String  TAG = "LuoyiIMS";
     public static final String  LOGIN_SUCCESS = "loginSuccess";
     public static final String  USRE_NOT_EXIST = "userNotExist";
     public static final String  NOT_MATCH = "notMatch";
